@@ -57,11 +57,15 @@ export default function WindowManager() {
   return (
     <div className="relative w-full h-full">
       {/* Desktop shortcuts */}
-      <div className="absolute top-4 left-4 grid gap-6">
+      <div className="absolute top-4 left-4 grid gap-6 animate-slide-in-bottom" style={{ animationDelay: '0.2s' }}>
         {icons.map((i) => (
-          <button key={i.id} onDoubleClick={i.action} className="flex flex-col items-center gap-2 hover-scale">
-            <div className="p-3 rounded-lg border bg-card/70">{i.icon}</div>
-            <div className="text-xs text-center max-w-[100px]">{i.label}</div>
+          <button key={i.id} onDoubleClick={i.action} className="flex flex-col items-center gap-2 hover-scale group">
+            <div className="p-3 rounded-lg border bg-card/70 backdrop-blur-sm group-hover:bg-brand/10 group-hover:border-brand/50 transition-all duration-200 glow-effect">
+              {i.icon}
+            </div>
+            <div className="text-xs text-center max-w-[100px] group-hover:text-brand transition-colors duration-200">
+              {i.label}
+            </div>
           </button>
         ))}
       </div>

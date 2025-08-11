@@ -137,6 +137,15 @@ All colors MUST be HSL.
     );
     pointer-events: none;
   }
+  .hover-scale {
+    @apply transition-transform duration-200 ease-out hover:scale-105 active:scale-95;
+  }
+  .glow-effect {
+    @apply shadow-lg shadow-brand/20;
+  }
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--brand) / 0.5);
+  }
 }
 
 @keyframes boot-flicker {
@@ -153,7 +162,75 @@ All colors MUST be HSL.
   100% { clip-path: inset(0 0 80% 0); }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--brand) / 0.3); }
+  50% { box-shadow: 0 0 30px hsl(var(--brand) / 0.6), 0 0 40px hsl(var(--brand-2) / 0.3); }
+}
+
+@keyframes slide-in-from-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 @layer base {
   * { @apply border-border; }
   body { @apply bg-background text-foreground; }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--brand));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--brand-2));
+  }
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-slide-in-bottom {
+    animation: slide-in-from-bottom 0.6s ease-out;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
 }
