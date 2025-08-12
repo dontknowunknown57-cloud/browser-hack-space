@@ -60,10 +60,10 @@ export default function WindowManager() {
       <div className="absolute top-4 left-4 grid gap-6 animate-slide-in-bottom" style={{ animationDelay: '0.2s' }}>
         {icons.map((i) => (
           <button key={i.id} onDoubleClick={i.action} className="flex flex-col items-center gap-2 hover-scale group">
-            <div className="p-3 rounded-lg border bg-card/70 backdrop-blur-sm group-hover:bg-brand/10 group-hover:border-brand/50 transition-all duration-200 glow-effect">
+            <div className="p-3 rounded-lg border card-modern group-hover:bg-brand/15 group-hover:border-brand/60 transition-all duration-300 group-hover:glow-effect group-hover:animate-pulse-glow">
               {i.icon}
             </div>
-            <div className="text-xs text-center max-w-[100px] group-hover:text-brand transition-colors duration-200">
+            <div className="text-xs text-center max-w-[100px] group-hover:text-brand transition-colors duration-300 group-hover:text-glow">
               {i.label}
             </div>
           </button>

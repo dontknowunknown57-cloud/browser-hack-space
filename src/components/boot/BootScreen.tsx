@@ -94,19 +94,19 @@ export default function BootScreen({ onBootComplete }: BootScreenProps) {
           <Progress value={progress} className="h-2" />
           
           <div className="min-h-[1.5rem] flex items-center justify-center">
-            <p className="text-sm text-muted-foreground font-mono animate-pulse">
+            <p className="text-sm text-muted-foreground font-mono animate-loading-pulse text-glow">
               {currentMessage}
             </p>
           </div>
           
-          <div className="text-xs text-muted-foreground/60">
+          <div className="text-xs text-muted-foreground/60 animate-loading-pulse">
             {Math.round(progress)}% Complete
           </div>
         </div>
 
         {/* Terminal-style cursor */}
         <div className="mt-8 flex justify-center">
-          <div className="w-2 h-4 bg-brand animate-pulse" />
+          <div className="w-2 h-4 bg-brand animate-pulse glow-effect" />
         </div>
       </div>
     </div>

@@ -33,17 +33,17 @@ export default function CodeEditorApp() {
 
   return (
     <div className="w-full h-full grid grid-rows-[auto_1fr_auto]">
-      <div className="flex items-center gap-2 p-2 border-b bg-background/50 backdrop-blur-sm">
+      <div className="flex items-center gap-2 p-2 border-b bg-background/70 backdrop-blur-md">
         <input
           value={path}
           onChange={(e) => setPath(e.target.value)}
-          className="w-72 rounded-md border bg-background/80 px-2 py-1 focus:border-brand/50 focus:ring-1 focus:ring-brand/20 transition-all duration-200"
+          className="w-72 rounded-md border bg-background/90 px-2 py-1 focus:border-brand/60 focus:ring-2 focus:ring-brand/30 transition-all duration-300 hover:bg-background/95"
           aria-label="File path"
         />
-        <Button variant="secondary" onClick={save} className="hover-scale">
+        <Button variant="secondary" onClick={save} className="hover-scale transition-all duration-300 hover:glow-effect">
           Save
         </Button>
-        <Button variant="default" onClick={run} className="hover-scale bg-gradient-to-r from-brand to-brand-2 hover:from-brand/80 hover:to-brand-2/80">
+        <Button variant="default" onClick={run} className="hover-scale button-modern">
           Run
         </Button>
       </div>
@@ -56,14 +56,14 @@ export default function CodeEditorApp() {
           onChange={(v) => setCode(v ?? '')}
           options={{ fontSize: 14, minimap: { enabled: false } }}
         />
-        <div className="p-2 text-sm overflow-auto bg-background/30 backdrop-blur-sm">
-          <div className="font-medium mb-1 text-brand">Output</div>
-          <pre className="whitespace-pre-wrap font-mono text-xs bg-background/50 p-2 rounded border">
+        <div className="p-2 text-sm overflow-auto bg-background/40 backdrop-blur-md">
+          <div className="font-medium mb-1 text-brand text-glow">Output</div>
+          <pre className="whitespace-pre-wrap font-mono text-xs bg-background/60 p-2 rounded border border-border/50">
             {output || 'Run the code to see output here.'}
           </pre>
         </div>
       </div>
-      <div className="p-2 text-xs text-muted-foreground border-t bg-background/50 backdrop-blur-sm">
+      <div className="p-2 text-xs text-muted-foreground border-t bg-background/70 backdrop-blur-md">
         <span className="text-brand">Tip:</span> Edit path to open other files in the virtual FS.
       </div>
     </div>

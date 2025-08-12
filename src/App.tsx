@@ -33,7 +33,7 @@ const App = () => {
   };
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} forcedTheme="dark">
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           <Toaster />
@@ -42,7 +42,7 @@ const App = () => {
           {isBooting && <BootScreen onBootComplete={handleBootComplete} />}
           
           {showContent && (
-            <div className="animate-in fade-in duration-500">
+            <div className="animate-in fade-in duration-500 theme-transition">
               <BrowserRouter>
                 <Routes>
                   <Route path="/" element={<Index />} />

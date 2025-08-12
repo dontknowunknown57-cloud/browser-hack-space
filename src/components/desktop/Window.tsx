@@ -42,28 +42,28 @@ export function DesktopWindow(props: WindowProps) {
         onResizeStop(id, ref.offsetWidth, ref.offsetHeight);
         onDragStop(id, position.x, position.y);
       }}
-      className="glass-surface rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:shadow-brand/20 transition-all duration-300 animate-slide-in-bottom"
+      className="glass-surface rounded-lg overflow-hidden shadow-lg hover:shadow-xl hover:shadow-brand/25 transition-all duration-300 animate-slide-in-bottom glow-effect"
     >
-      <div className="flex items-center justify-between px-3 py-2 border-b border-border bg-background/60 backdrop-blur-sm">
+      <div className="flex items-center justify-between px-3 py-2 border-b border-border/50 bg-background/70 backdrop-blur-md">
         <div className="font-medium select-none truncate pr-2">{title}</div>
         <div className="flex items-center gap-2">
           <button 
             aria-label="Minimize" 
             onClick={() => onMinimize(id)} 
-            className="hover-scale rounded-md px-2 py-1 border border-border hover:border-brand/50 hover:bg-brand/10 transition-all duration-200"
+            className="hover-scale rounded-md px-2 py-1 border border-border hover:border-brand/50 hover:bg-brand/10 transition-all duration-300 hover:glow-effect"
           >
             <Minus className="h-4 w-4" />
           </button>
           <button 
             aria-label="Close" 
             onClick={() => onClose(id)} 
-            className="hover-scale rounded-md px-2 py-1 border border-border hover:border-destructive/50 hover:bg-destructive/10 transition-all duration-200"
+            className="hover-scale rounded-md px-2 py-1 border border-border hover:border-destructive/50 hover:bg-destructive/10 transition-all duration-300 hover:shadow-lg hover:shadow-destructive/20"
           >
             <X className="h-4 w-4" />
           </button>
         </div>
       </div>
-      <div className="h-[calc(100%-44px)] bg-card">{children}</div>
+      <div className="h-[calc(100%-44px)] bg-card/95 backdrop-blur-sm">{children}</div>
     </Rnd>
   );
 }
