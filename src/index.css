@@ -181,8 +181,6 @@ All colors MUST be HSL.
   .theme-transition {
     transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
   }
-  }
-}
 
 @keyframes boot-flicker {
   0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% { opacity: 1 }
